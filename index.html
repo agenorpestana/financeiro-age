@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Meu Financeiro Simples</title>
+    
+    <!-- PWA / Android Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#6750A4">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Financeiro">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Financeiro">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+            },
+            colors: {
+              primary: '#6750A4',
+              onPrimary: '#FFFFFF',
+              secondary: '#625B71',
+              tertiary: '#7D5260',
+              surface: '#FFFBFE',
+              surfaceVariant: '#E7E0EC',
+              background: '#FFFBFE',
+              error: '#B3261E',
+              income: '#2E7D32',
+              expense: '#B3261E'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior-y: none; /* Previne efeito de 'pull-to-refresh' do navegador */
+        user-select: none; /* Sensação mais nativa evitando seleção de texto acidental */
+      }
+      #root {
+        max-width: 480px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background-color: #FFFBFE;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        position: relative;
+        padding-bottom: 80px;
+      }
+      /* Permitir seleção em inputs */
+      input, textarea {
+        user-select: text;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+    "dexie": "https://esm.sh/dexie@^4.0.1",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+    "firebase/": "https://esm.sh/firebase@^12.8.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Registro do Service Worker para suporte Offline
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('SW registrado com sucesso:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Falha ao registrar SW:', error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

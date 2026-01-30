@@ -1,0 +1,5 @@
+{
+  "name": "Meu Financeiro Simples",
+  "description": "Um gerenciador financeiro pessoal focado em facilidade, rapidez e privacidade. Controle receitas, despesas e visualize relatórios com design Material 3.",
+  "requestFramePermissions": []
+}
